@@ -30,43 +30,43 @@ The Django Followers System project aims to provide a robust system for managing
 To install and set up the Django Followers System project, follow these steps:
 
 
-# Clone the repository
+### Clone the repository
 ```bash
 git clone https://github.com/AbdullahBakir97/Django-Followers-System.git
 ```
 
-# Navigate to the project directory
+### Navigate to the project directory
 ```bash
 cd Django-Followers-System
 ```
 
-# Create a virtual environment (optional but recommended)
+### Create a virtual environment (optional but recommended)
 ```bash
 python -m venv env
 ```
 
-# Activate the virtual environment
+### Activate the virtual environment
 ```bash
 source env/bin/activate  # for Unix/Linux
 env\Scripts\activate  # for Windows
 ```
 
-# Install dependencies
+### Install dependencies
 ```bash
 pip install -r requirements.txt
 ```
 
-# Apply database migrations
+### Apply database migrations
 ```bash
 python manage.py migrate
 ```
 
-# Create a superuser (optional)
+### Create a superuser (optional)
 ```bash
 python manage.py createsuperuser
 ```
 
-# Run the development server
+### Run the development server
 ```bash
 python manage.py runserver
 ```
@@ -82,7 +82,10 @@ To use the Django Followers System, follow these steps:
 5. View and manage your follower and following lists from your profile dashboard.
 
 ## API Documentation
-The Django Followers System provides RESTful API endpoints for integrating with external applications. Refer to the API documentation for detailed information on how to use these endpoints.
+- **Retrieve User Profile**: `GET /accounts/api/profile/{user_id}/`
+- **Send Follow Request**: `POST /accounts/api/follow/`
+- **Handle Follow Request**: `PUT /accounts/api/follow-request/{request_id}/`
+- **Unfollow User**: `DELETE /accounts/api/unfollow/{user_id}/`
 
 ## Contributing
 Contributions to the Django Followers System project are welcome! To contribute, follow these steps:
