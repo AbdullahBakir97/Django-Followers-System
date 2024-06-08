@@ -95,6 +95,11 @@ class APIRootView(views.APIView):
             'send_follow_request': reverse('api_send_follow_request', request=request),
             'unfollow_user': reverse('api_unfollow_user', kwargs={'user_id': user_id}, request=request),  # Example user_id
             'handle_follow_request': reverse('api_handle_follow_request', kwargs={'request_id': user_id}, request=request),  # Example request_id
+            'user_list': reverse('user_list', request=request),
+            'login': reverse('login', request=request),
+            'signup': reverse('signup', request=request),
+            'chat_rooms': reverse('chat_rooms', request=request),
+            'chat_messages': reverse('chat_messages', kwargs={'roomId': 'example_room_id'}, request=request),  # Example roomId
         })
         
         

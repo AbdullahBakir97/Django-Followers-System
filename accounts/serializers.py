@@ -1,6 +1,5 @@
 from rest_framework import serializers
-from .models import User, UserProfile, FollowRequest, Follower
-from accounts.models import User, OnlineUser
+from .models import User, OnlineUser, UserProfile, FollowRequest, Follower
 from django.contrib.auth.password_validation import validate_password
 from django.db import transaction
 from rest_framework_simplejwt.serializers import TokenObtainPairSerializer
@@ -10,7 +9,7 @@ from chat.models import ChatRoom, ChatMessage
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
-        fields = ['id', 'username', 'email', 'first_name', 'last_name']
+        fields = ['id', 'image', 'username', 'email', 'first_name', 'last_name']
 
 class UserProfileSerializer(serializers.ModelSerializer):
     user = UserSerializer()
@@ -52,10 +51,6 @@ class FollowerSerializer(serializers.ModelSerializer):
         
         
         
-class UserSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = User
-        fields = ['id', 'image', 'first_name', 'last_name']
 
 class LoginSerializer(TokenObtainPairSerializer):
     @classmethod
