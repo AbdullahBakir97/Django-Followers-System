@@ -74,20 +74,29 @@ To use the Django Followers System, follow these steps:
 
 ## API Documentation
 
-### User Authentication Endpoints
-- **Reset Password**: `POST /api/auth/password/reset/` [name='rest_password_reset']
-- **Confirm Password Reset**: `POST /api/auth/password/reset/confirm/` [name='rest_password_reset_confirm']
-- **User Login**: `POST /api/auth/login/` [name='rest_login']
-- **User Logout**: `POST /api/auth/logout/` [name='rest_logout']
-- **User Details**: `GET /api/auth/user/` [name='rest_user_details']
-- **Change Password**: `POST /api/auth/password/change/` [name='rest_password_change']
-- **User Registration**: `POST /api/auth/registration/`
+### Accounts Endpoints
+- **List Accounts API**: `GET /accounts/api/` [accounts_api_list]
+- **Update Follow Request**: `PUT /accounts/api/follow-request/{request_id}/` [accounts_api_follow-request_update]
+- **Partial Update Follow Request**: `PATCH /accounts/api/follow-request/{request_id}/` [accounts_api_follow-request_partial_update]
+- **Create Follow**: `POST /accounts/api/follow/` [accounts_api_follow_create]
+- **Read Profile**: `GET /accounts/api/profile/` [accounts_api_profile_read]
+- **Update Profile**: `PUT /accounts/api/profile/` [accounts_api_profile_update]
+- **Partial Update Profile**: `PATCH /accounts/api/profile/` [accounts_api_profile_partial_update]
+- **Read User Profile**: `GET /accounts/api/profile/{user_id}/` [accounts_api_profile_read]
+- **Delete Unfollow**: `DELETE /accounts/api/unfollow/{user_id}/` [accounts_api_unfollow_delete]
 
-### Custom Endpoints for Followers System
-- **Retrieve User Profile**: `GET /accounts/api/profile/{user_id}/`
-- **Send Follow Request**: `POST /accounts/api/follow/`
-- **Handle Follow Request**: `PUT /accounts/api/follow-request/{request_id}/`
-- **Unfollow User**: `DELETE /accounts/api/unfollow/{user_id}/`
+### Authentication Endpoints
+- **User Login**: `POST /api/auth/login/` [api_auth_login_create]
+- **User Logout (GET)**: `GET /api/auth/logout/` [api_auth_logout_list]
+- **User Logout (POST)**: `POST /api/auth/logout/` [api_auth_logout_create]
+- **Change Password**: `POST /api/auth/password/change/` [api_auth_password_change_create]
+- **Reset Password**: `POST /api/auth/password/reset/` [api_auth_password_reset_create]
+- **Confirm Password Reset**: `POST /api/auth/password/reset/confirm/` [api_auth_password_reset_confirm_create]
+- **User Registration**: `POST /api/auth/registration/` [api_auth_registration_create]
+- **Resend Email for Registration**: `POST /api/auth/registration/resend-email/` [api_auth_registration_resend-email_create]
+- **Verify Email for Registration**: `POST /api/auth/registration/verify-email/` [api_auth_registration_verify-email_create]
+- **Read and Update User**: `GET/PUT/PATCH /api/auth/user/` [api_auth_user_read, api_auth_user_update, api_auth_user_partial_update]
+
 
 ## Contributing
 Contributions to the Django Followers System project are welcome! To contribute, follow these steps:
