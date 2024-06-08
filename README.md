@@ -1,11 +1,10 @@
 # Django Followers System
 
-Django Followers System is a web application that provides functionality for users to follow each other, send follow requests, accept or reject follow requests, and manage followers and following lists.
-
+Django Followers System is a web application that provides functionality for users to follow each other, send follow requests, accept or reject follow requests, manage followers and following lists, and chat with each other.
 
 ## Introduction
 
-The Django Followers System project aims to provide a robust system for managing user relationships within a Django web application. With this system, users can easily follow and unfollow each other, send and receive follow requests, and manage their follower and following lists. This project can be integrated into various types of social networking platforms, community forums, or any application that requires user interactions and connections.
+The Django Followers System project aims to provide a robust system for managing user relationships within a Django web application. With this system, users can easily follow and unfollow each other, send and receive follow requests, manage their follower and following lists, and engage in real-time chat. This project can be integrated into various types of social networking platforms, community forums, or any application that requires user interactions and connections.
 
 ## Features
 
@@ -14,6 +13,7 @@ The Django Followers System project aims to provide a robust system for managing
 - Following and unfollowing other users
 - Sending and accepting/rejecting follow requests
 - View and manage follower and following lists
+- Real-time chat between users
 - API endpoints for integrating with external applications
 
 ## Installation
@@ -71,6 +71,7 @@ To use the Django Followers System, follow these steps:
 3. Explore other users and follow/unfollow them.
 4. Send follow requests to private users or accept/reject follow requests from others.
 5. View and manage your follower and following lists from your profile dashboard.
+6. Engage in real-time chat with other users.
 
 ## API Documentation
 
@@ -84,6 +85,14 @@ To use the Django Followers System, follow these steps:
 - **Partial Update Profile**: `PATCH /accounts/api/profile/`
 - **Read User Profile**: `GET /accounts/api/profile/{user_id}/`
 - **Delete Unfollow**: `DELETE /accounts/api/unfollow/{user_id}/`
+
+### Chat Endpoints
+- **List Chat Rooms**: `GET /chat/api/rooms/`
+- **Create Chat Room**: `POST /chat/api/rooms/`
+- **Read Chat Room**: `GET /chat/api/rooms/{room_id}/`
+- **List Messages**: `GET /chat/api/messages/`
+- **Create Message**: `POST /chat/api/messages/`
+- **Read Message**: `GET /chat/api/messages/{message_id}/`
 
 ### Authentication Endpoints
 - **User Login**: `POST /api/auth/login/`
