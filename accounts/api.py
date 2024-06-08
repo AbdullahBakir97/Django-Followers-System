@@ -2,8 +2,12 @@ from rest_framework import generics, status, views
 from rest_framework.response import Response
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.reverse import reverse
-from .models import UserProfile, FollowRequest, Follower
-from .serializers import UserProfileSerializer, FollowRequestSerializer, FollowerSerializer
+from rest_framework_simplejwt.views import TokenObtainPairView
+from rest_framework.generics import CreateAPIView, ListAPIView
+from rest_framework.pagination import LimitOffsetPagination
+from rest_framework.permissions import AllowAny
+from .models import User, UserProfile, FollowRequest, Follower
+from .serializers import UserProfileSerializer, FollowRequestSerializer, FollowerSerializer, UserSerializer, LoginSerializer, SignupSerializer
 from django.shortcuts import get_object_or_404
 
 class UserProfileDetail(generics.RetrieveUpdateAPIView):
@@ -92,3 +96,32 @@ class APIRootView(views.APIView):
             'unfollow_user': reverse('api_unfollow_user', kwargs={'user_id': user_id}, request=request),  # Example user_id
             'handle_follow_request': reverse('api_handle_follow_request', kwargs={'request_id': user_id}, request=request),  # Example request_id
         })
+        
+        
+    
+    
+class UserView(ListAPIView):
+    queryset = User.objects.all().order_by('first_name')
+    serializer_class = UserSerializer
+    pagination_class = LimitOffsetPagination
+
+    def get_queryset(self):
+        excludeUsersArr = []
+        try:
+            excludeUsers = self.request.query_params.get('exclude')
+            if excludeUsers:
+                userIds = excludeUsers.split(',')
+                for userId in userIds:
+                    excludeUsersArr.append(int(userId))
+        except:
+            return []
+        return super().get_queryset().exclude(id__in=excludeUsersArr)
+
+class LoginApiView(TokenObtainPairView):
+    permission_classes = [AllowAny]
+    serializer_class = LoginSerializer
+
+class SignupApiView(CreateAPIView):
+    permission_classes = [AllowAny]
+    queryset = User.objects.all()
+    serializer_class = SignupSerializer

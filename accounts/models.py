@@ -1,9 +1,21 @@
-from django.contrib.auth.models import User
+from django.contrib.auth.models import AbstractUser
 from django.db import models
+from shortuuidfield import ShortUUIDField
 from django.utils import timezone
+from django.conf import settings
+
+class User(AbstractUser):
+    userId = ShortUUIDField()
+    image = models.ImageField(upload_to="users_images/", null=True, blank=True)
+
+class OnlineUser(models.Model):
+    user = models.OneToOneField(settings.AUTH_USER_MODEL,  on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.user.username
 
 class UserProfile(models.Model):
-    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    user = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     bio = models.TextField(blank=True, null=True)
     profile_picture = models.ImageField(upload_to='profile_pictures/', blank=True, null=True)
     is_private = models.BooleanField(default=False)

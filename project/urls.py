@@ -37,6 +37,7 @@ urlpatterns = [
     
     path('accounts/' , include('accounts.urls')),
     path('accounts/', include('django.contrib.auth.urls')),
+    path('chat/', include('chat.urls')),
     path("admin/", admin.site.urls),
     path('api/auth/', include('dj_rest_auth.urls')),
     path('api/auth/registration/', include('dj_rest_auth.registration.urls')),

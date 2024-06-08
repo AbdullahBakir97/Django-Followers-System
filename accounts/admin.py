@@ -1,6 +1,18 @@
 from django.contrib import admin
-from .models import UserProfile, Follower, FollowRequest
+from django.contrib.auth.admin import UserAdmin
+from .models import User, OnlineUser, UserProfile, Follower, FollowRequest
 
+@admin.register(User)
+class CustomUserAdmin(UserAdmin):
+    list_display = ('username', 'email', 'first_name', 'last_name', 'is_staff', 'userId')
+    search_fields = ('username', 'email', 'first_name', 'last_name')
+    readonly_fields = ('userId',)
+    
+@admin.register(OnlineUser)
+class OnlineUserAdmin(admin.ModelAdmin):
+    list_display = ('user',)
+    search_fields = ('user__username', 'user__email')
+    
 @admin.register(UserProfile)
 class UserProfileAdmin(admin.ModelAdmin):
     list_display = ('user', 'is_private', 'created_at', 'updated_at')
