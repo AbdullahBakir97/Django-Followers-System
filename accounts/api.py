@@ -16,6 +16,7 @@ class UserProfileDetail(generics.RetrieveUpdateAPIView):
 
 class SendFollowRequest(generics.CreateAPIView):
     serializer_class = FollowRequestSerializer
+    queryset = FollowRequest.objects.all()
     # permission_classes = [IsAuthenticated]
 
     def create(self, request, *args, **kwargs):
@@ -80,10 +81,14 @@ class UserProfileView(generics.RetrieveAPIView):
 
 class APIRootView(views.APIView):
     def get(self, request, *args, **kwargs):
+        user_id = None
+        if request.user.is_authenticated:
+            user_id = request.user.id
+
         return Response({
             'profile': reverse('api_profile_detail', request=request),
-            'user_profile': reverse('api_user_profile', kwargs={'user_id': 1}, request=request),  # Example user_id
+            'user_profile': reverse('api_user_profile', kwargs={'user_id': user_id}, request=request),  # Example user_id
             'send_follow_request': reverse('api_send_follow_request', request=request),
-            'unfollow_user': reverse('api_unfollow_user', kwargs={'user_id': 1}, request=request),  # Example user_id
-            'handle_follow_request': reverse('api_handle_follow_request', kwargs={'request_id': 1}, request=request),  # Example request_id
+            'unfollow_user': reverse('api_unfollow_user', kwargs={'user_id': user_id}, request=request),  # Example user_id
+            'handle_follow_request': reverse('api_handle_follow_request', kwargs={'request_id': user_id}, request=request),  # Example request_id
         })

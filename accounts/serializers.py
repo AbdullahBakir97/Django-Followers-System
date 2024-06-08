@@ -32,16 +32,14 @@ class UserProfileSerializer(serializers.ModelSerializer):
         return instance
 
 class FollowRequestSerializer(serializers.ModelSerializer):
-    from_user = UserProfileSerializer()
-    to_user = UserProfileSerializer()
+
 
     class Meta:
         model = FollowRequest
         fields = ['id', 'from_user', 'to_user', 'status', 'created_at', 'updated_at']
 
 class FollowerSerializer(serializers.ModelSerializer):
-    user = UserProfileSerializer()
-    follower = UserProfileSerializer()
+
 
     class Meta:
         model = Follower
