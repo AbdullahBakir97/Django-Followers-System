@@ -2,15 +2,6 @@
 
 Django Followers System is a web application that provides functionality for users to follow each other, send follow requests, accept or reject follow requests, and manage followers and following lists.
 
-## Table of Contents
-
-- [Introduction](#introduction)
-- [Features](#features)
-- [Installation](#installation)
-- [Usage](#usage)
-- [API Documentation](#api-documentation)
-- [Contributing](#contributing)
-- [License](#license)
 
 ## Introduction
 
