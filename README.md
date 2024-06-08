@@ -73,6 +73,17 @@ To use the Django Followers System, follow these steps:
 5. View and manage your follower and following lists from your profile dashboard.
 
 ## API Documentation
+
+### User Authentication Endpoints
+- **Reset Password**: `POST /api/auth/password/reset/` [name='rest_password_reset']
+- **Confirm Password Reset**: `POST /api/auth/password/reset/confirm/` [name='rest_password_reset_confirm']
+- **User Login**: `POST /api/auth/login/` [name='rest_login']
+- **User Logout**: `POST /api/auth/logout/` [name='rest_logout']
+- **User Details**: `GET /api/auth/user/` [name='rest_user_details']
+- **Change Password**: `POST /api/auth/password/change/` [name='rest_password_change']
+- **User Registration**: `POST /api/auth/registration/`
+
+### Custom Endpoints for Followers System
 - **Retrieve User Profile**: `GET /accounts/api/profile/{user_id}/`
 - **Send Follow Request**: `POST /accounts/api/follow/`
 - **Handle Follow Request**: `PUT /accounts/api/follow-request/{request_id}/`
