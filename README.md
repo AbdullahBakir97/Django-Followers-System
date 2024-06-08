@@ -75,27 +75,27 @@ To use the Django Followers System, follow these steps:
 ## API Documentation
 
 ### Accounts Endpoints
-- **List Accounts API**: `GET /accounts/api/` [accounts_api_list]
-- **Update Follow Request**: `PUT /accounts/api/follow-request/{request_id}/` [accounts_api_follow-request_update]
-- **Partial Update Follow Request**: `PATCH /accounts/api/follow-request/{request_id}/` [accounts_api_follow-request_partial_update]
-- **Create Follow**: `POST /accounts/api/follow/` [accounts_api_follow_create]
-- **Read Profile**: `GET /accounts/api/profile/` [accounts_api_profile_read]
-- **Update Profile**: `PUT /accounts/api/profile/` [accounts_api_profile_update]
-- **Partial Update Profile**: `PATCH /accounts/api/profile/` [accounts_api_profile_partial_update]
-- **Read User Profile**: `GET /accounts/api/profile/{user_id}/` [accounts_api_profile_read]
-- **Delete Unfollow**: `DELETE /accounts/api/unfollow/{user_id}/` [accounts_api_unfollow_delete]
+- **List Accounts API**: `GET /accounts/api/`
+- **Update Follow Request**: `PUT /accounts/api/follow-request/{request_id}/`
+- **Partial Update Follow Request**: `PATCH /accounts/api/follow-request/{request_id}/`
+- **Create Follow**: `POST /accounts/api/follow/` 
+- **Read Profile**: `GET /accounts/api/profile/`
+- **Update Profile**: `PUT /accounts/api/profile/`
+- **Partial Update Profile**: `PATCH /accounts/api/profile/`
+- **Read User Profile**: `GET /accounts/api/profile/{user_id}/`
+- **Delete Unfollow**: `DELETE /accounts/api/unfollow/{user_id}/`
 
 ### Authentication Endpoints
-- **User Login**: `POST /api/auth/login/` [api_auth_login_create]
-- **User Logout (GET)**: `GET /api/auth/logout/` [api_auth_logout_list]
-- **User Logout (POST)**: `POST /api/auth/logout/` [api_auth_logout_create]
-- **Change Password**: `POST /api/auth/password/change/` [api_auth_password_change_create]
-- **Reset Password**: `POST /api/auth/password/reset/` [api_auth_password_reset_create]
-- **Confirm Password Reset**: `POST /api/auth/password/reset/confirm/` [api_auth_password_reset_confirm_create]
-- **User Registration**: `POST /api/auth/registration/` [api_auth_registration_create]
-- **Resend Email for Registration**: `POST /api/auth/registration/resend-email/` [api_auth_registration_resend-email_create]
-- **Verify Email for Registration**: `POST /api/auth/registration/verify-email/` [api_auth_registration_verify-email_create]
-- **Read and Update User**: `GET/PUT/PATCH /api/auth/user/` [api_auth_user_read, api_auth_user_update, api_auth_user_partial_update]
+- **User Login**: `POST /api/auth/login/`
+- **User Logout (GET)**: `GET /api/auth/logout/`
+- **User Logout (POST)**: `POST /api/auth/logout/`
+- **Change Password**: `POST /api/auth/password/change/`
+- **Reset Password**: `POST /api/auth/password/reset/` 
+- **Confirm Password Reset**: `POST /api/auth/password/reset/confirm/`
+- **User Registration**: `POST /api/auth/registration/`
+- **Resend Email for Registration**: `POST /api/auth/registration/resend-email/`
+- **Verify Email for Registration**: `POST /api/auth/registration/verify-email/`
+- **Read and Update User**: `GET/PUT/PATCH /api/auth/user/`
 
 
 ## Contributing
