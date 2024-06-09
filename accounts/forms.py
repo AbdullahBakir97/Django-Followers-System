@@ -1,6 +1,5 @@
 from django import forms
-from .models import FollowRequest, UserProfile
-from django.contrib.auth.models import User
+from .models import User, FollowRequest, UserProfile
 from django.core.exceptions import ValidationError
 
 class FollowRequestForm(forms.ModelForm):
@@ -27,12 +26,13 @@ class UserProfileForm(forms.ModelForm):
 class UserForm(forms.ModelForm):
     class Meta:
         model = User
-        fields = ['username', 'email', 'first_name', 'last_name']
+        fields = ['username', 'email', 'first_name', 'last_name', 'image' ]
         widgets = {
             'username': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Username'}),
             'email': forms.EmailInput(attrs={'class': 'form-control', 'placeholder': 'Email'}),
             'first_name': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'First Name'}),
             'last_name': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Last Name'}),
+             'image': forms.ClearableFileInput(attrs={'class': 'form-control'}),
         }
         error_messages = {
             'username': {
